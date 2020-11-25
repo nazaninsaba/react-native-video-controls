@@ -605,7 +605,7 @@ export default class VideoPlayer extends Component {
    */
   calculateSeekerPosition() {
     const percent = this.state.currentTime / this.state.duration;
-    return this.player.seekerWidth * percent;
+   return this.player.seekerWidth * (1 - percent);
   }
 
   /**
@@ -616,8 +616,8 @@ export default class VideoPlayer extends Component {
    */
   calculateTimeFromSeekerPosition() {
     const percent = this.state.seekerPosition / this.player.seekerWidth;
-    return this.state.duration * percent;
-  }
+     return this.state.duration * (1 - percent);
+}
 
   /**
    * Seek to a time in the video.
